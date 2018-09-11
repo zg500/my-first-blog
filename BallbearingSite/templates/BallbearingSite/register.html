@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+{%  extends "BallbearingSite/base.html" %}
+{% block body_block %}
+
+<!-- <h1> صفحه ثبت نام</h1>
+  {{ form.as_p }} -->
+<!-- <form method="post">
+  {% csrf_token %} -->
+
+  <!-- {% for field in form.visible_fields %}
+  <p>{{ field.label_tag }} {{ field }}  {{ field.errors }}</p> -->
+  <!-- <p>{{ field.label_tag }}  {{ field.input_tag }} {{ field }}</p> -->
+
+  <!-- {% endfor %}
+  <input type="submit"  class="btn btn-primary" value="ارسال">
+  </form>
+   -->
+
+
+
+   <div class="col-lg-8"style="margin-right:15%;">
+     <div class="panel panel-primary">
+       <div class="panel-heading">
+      ثبت نام جهت عضویت و استفاده از امکانات سایت
+      </div>
+    <div class="panel-body" style="text-align:right ; margin-left:auto;margin-right:auto;width:80% ;padding:5%">
+<div class="row">
+        <form enctype="multipart/form-data" method="post" >
+          {% csrf_token %}
+          {{ user_form.as_p }}
+          {{ profile_form.as_p}}
+
+
+          <input id="savepersonalinfo" type="submit" name="" value="ثبت">
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+
+
+
+
+
+{% endblock %}

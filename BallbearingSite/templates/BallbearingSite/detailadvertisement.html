@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+{%  extends "BallbearingSite/base.html" %}
+{% load static %}
+
+{% block body_block %}
+
+<form method="post">
+{% csrf_token %}
+<div style="margin-right:8%;">
+  <div class="panel panel-primary">
+
+    <div class="panel-body">
+      <div class="" style="margin:5%;">
+      <img src="{% get_media_prefix %}{{ advertisement.pic }}" height="300" width="300" />
+
+      <div style="width: 60%; height: 50%; float:left;">
+
+    نوع خودرو :  {{ advertisement.car }}
+     <br><br>
+    نام قطعه  {{ advertisement.partname }}
+      <br><br>
+    توضیحات :  {{ advertisement.description }}
+      <br><br>
+      قیمت :  {{ advertisement.price }}
+        <br><br>
+
+  مشخصات فروشنده :<a href="/sellerstocks/{{advertisement.user }} " class="hover"
+  title="برای مشاهده تمام کالاهای این فروشنده کلیک نمایید">
+   {{advertisement.user.profile.companyname }}
+  &nbsp;&nbsp;&nbsp; {{advertisement.user.first_name}}
+  &nbsp;&nbsp;&nbsp; {{advertisement.user.last_name}}
+</a>
+  &nbsp;&nbsp;&nbsp; {{advertisement.user.profile.city}}
+  &nbsp;&nbsp;&nbsp; {{advertisement.user.profile.address}}
+      &nbsp;&nbsp;&nbsp; {{advertisement.user.profile.tel}}
+      &nbsp;&nbsp;&nbsp; {{advertisement.user.email}}
+
+      </div>
+<div  style="width: 60%; height: 50%; float:left;">
+  <input type="submit" name="toseller" value="برای اطلاع رسانی به فروشنده جهت خرید این کالا کلیک نمایید "  style="color:red; "/>
+</div>
+
+</div>
+</div>
+</div>
+
+</div>
+</form >
+    <!-- <small> {{postdetail.updateDateTime}}</small> -->
+
+    <!-- safe is for rendering html code in this content -->
+
+
+
+
+
+{% endblock %}

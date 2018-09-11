@@ -1,0 +1,189 @@
+
+making the tablr responsive
+table tr {
+  /* background: #f8f8f8; */
+  /*border: 1px solid #ddd;*/
+}
+table th,
+table td {
+  text-align: center;
+}
+table th {
+  font-size: .85em;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+@media screen and (max-width: 600px) {
+  table {
+    border: 0;
+  }
+  table thead {
+    border: none;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+  }
+  table tr {
+    border-bottom: 1px solid #ddd;
+    display: block;
+    margin-bottom: .625em;
+  }
+  table td {
+    border-bottom: 1px solid #ddd;
+    display: block;
+    font-size: .8em;
+    text-align: right;
+  }
+  table td:before {
+    content: attr(data-label);
+    float: left;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  table td:last-child {
+    border-bottom: 0;
+  }
+}
+/* --------------------------------------- */
+/* fixing the table in panel */
+.table > thead > tr > th{
+    border-right: 1px solid #ddd;
+    border-bottom:0;
+}
+
+.table > tbody > tr > td{
+    border-right: 1px solid #ddd;
+}
+
+.table > thead > tr > th:last-of-type {
+    border-right: 0px;
+}
+
+.table > tbody > tr > td:last-of-type {
+    border-right: 0px;
+}
+
+.panel-body {
+    padding: 0;
+}
+
+.panel-body > .table{margin-bottom:0px;}
+
+/* --------------------------------------------- */
+
+
+@font-face {
+    font-family: 'BYekan';
+    src: url('BYekan.ttf');
+
+}
+@font-face {
+    font-family: 'glyphicons-halflings-regular';
+    src: url('glyphicons-halflings-regular.ttf');
+
+}
+
+.rowhover:hover {
+  background-color: #ffff99 !important;
+}
+thead tr:hover {
+  background-color:none !important;
+}
+body{
+font-family: 'BYekan' !important;
+}
+
+li.menue{
+  border: 1px solid #e7e7e7
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+nav {
+  background-color: #c6d3e6   !important;
+}
+
+
+
+input#savestocks , #savepersonalinfo ,#loginbtn
+{
+    width:11em   !important;
+}
+table {
+      border: 1px solid #e7e7e7;
+}
+
+ul {list-style:none}
+
+.success
+{
+color:green !important;
+}
+.error
+{
+  color:red !important;
+}
+
+/* footer : */
+
+.social-icon {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.social-icon li{
+  display: inline-block;
+  text-align: center;
+}
+
+.social-icon a {
+  display: block;
+  width: 44px;
+  height: 44px;
+  line-height: 44px;
+  border-radius: 50%;
+  margin-right: 5px;
+}
+
+.social-icon a:hover {
+  background: rgba(255, 255, 255, 0.25);
+  color: #fff;
+}
+
+.footer {
+  /* position: absolute; */
+  /* bottom: 0; */
+  padding-top: 5px;
+  width: 100%;
+  height: 60px;
+  background-color: gray;
+}
+
+/* to make addanother button invisible for expiredays */
+ input[name="_continue"],input[name="_addanother"],.deletelink {
+  display: none;
+}
+
+input#id_password{margin-left:-1% ;}
+input#id_password_repeat{margin-left:4% ;}
+input#id_email,#id_last_name,#id_comment{margin-left:3% ;}
+input#id_first_name{margin-left:-5% ;}
+input#id_city{margin-left:-3%;}
+input#id_companyname,#id_tel{margin-left:1% ;}
+input#id_state,#id_address{margin-left:-2% ;}
+input#id_address{width:450px ;margin-left:-2% ;}
+/* input#id_cellphone{margin-left:2% ;} */
+input#id_title{margin-left:-3% ;margin-left:-7%;}
+input#id_number{width:250px ;margin-left:-5%;}
+input#id_pasvand{width:250px ;margin-left:-3%;}
+input#id_brand{width:250px ;margin-left:-5%;}
+input#id_comment{width:250px ;margin-left:-2%;}
+input#id_price{width:250px ;margin-left:-7%;}

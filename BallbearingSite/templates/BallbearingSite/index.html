@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+{%  extends "BallbearingSite/base.html" %}
+{% load static %}
+
+{% block body_block %}
+
+<div class="row">
+  <div class="panel panel-primary table-responsive">
+    <div class="panel-body"  align="center">
+      <br>
+      <form  method="get" >
+                {% csrf_token %}
+              <p>آگهی فروش :
+       <select name="dropdowncity">
+             <option selected value="همه شهرها" > همه شهرها </option>
+           {% for item in companyname %}
+             <option  value="{{ item.city }}">{{ item.city }}</option>
+           {% endfor %}
+        </select> &nbsp;&nbsp;&nbsp;
+                 نوع خودرو :
+       <select name="dropdowncars">
+          {% for item in cars %}
+            {{ item.carname }}
+            <option  value="{{ item.carname }}">{{ item.carname }}</option>
+          {% endfor %}
+       </select>&nbsp;&nbsp;&nbsp;
+    نام قطعه :
+       <input type="text" name="partname">&nbsp;
+       <input type="submit" name="search" value="جستجو" />
+       </p>
+   </form>
+    </div>
+  </div>
+</div>
+
+
+<div class="row">
+  <div class="col-lg-3 col-md-3">
+      <div class="panel panel-primary">
+      <div class="panel-body" style=" padding:3%;">
+        <p>
+          {% for post in posts %}
+          <div class="" style="color:#4e5f98">
+              <h4>{{ post.title }}</h4>
+          </div>
+    <p>  {{ post.content | safe | truncatechars_html:200}}</p>
+    <!-- show 200 lettrt of the text -->
+        <small> <a href="{{ post.get_absolute_url }}" style="float:left"> ادامه مطلب</a> </small>
+        <br>
+        <hr>
+
+        {% endfor %}
+  </div>
+  </div>
+  </div>
+
+<div class="col-lg-9 col-md-9">
+    <div class="panel panel-primary">
+
+    <div class="panel-body" style=" padding:3%; width:100%">
+
+        {% for st in st %}
+          <a href="{{ st.get_absolute_url }}" >
+             <img src="{% get_media_prefix %}{{ st.pic }}" height="120" width="120" />
+          </a>
+<div style="width: 80%; height: 50%; float:left;">
+  <h4 onclick="location.href='{{ st.get_absolute_url }}';" style="cursor: pointer;">{{ st.car }} - {{ st.partname }}</h4>
+
+  &nbsp;&nbsp;&nbsp;  {{ st.description }}
+  <br>
+  <p></p>
+    <p style=font-size:10px>
+      &nbsp;&nbsp;&nbsp; {{st.user.profile.city}}
+    </p>
+</div>
+
+  <br>
+      <hr>
+      {% endfor %}
+
+<div class="" style="float:left">
+
+{% if st.has_other_pages %}
+  <ul class="pagination">
+    {% if st.has_previous %}
+      <li><a href="?page={{ st.previous_page_number }}">&laquo;</a></li>
+    {% else %}
+      <li class="disabled"><span>&laquo;</span></li>
+    {% endif %}
+    {% for i in st.paginator.page_range %}
+      {% if st.number == i %}
+        <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
+      {% else %}
+        <li><a href="?page={{ i }}">{{ i }}</a></li>
+      {% endif %}
+    {% endfor %}
+    {% if st.has_next %}
+      <li><a href="?page={{ st.next_page_number }}">&raquo;</a></li>
+    {% else %}
+      <li class="disabled"><span>&raquo;</span></li>
+    {% endif %}
+  </ul>
+{% endif %}
+</div>
+</div>
+</div>
+
+
+</div>
+
+
+{% endblock %}
+{% block footer_block %}
+
+  <footer class="footer">
+    <div class="container">
+      <ul class="social-icon animate "  style="  align: left">
+               <li><a href="#"> <img src="{% static 'images/telegram.png' %}" > </a></li>
+                <li><a href="#" ><img src="{% static 'images/insta.png' %}" ></a></li>
+                <li><a href="#" ><img src="{% static 'images/facebook.png' %}" ></a></li>
+                <li><a href="#" title="twitter" ><img src="{% static 'images/gplus.png' %}" ><i class="fa fa-twitter"></i></a></li>
+        </ul>
+
+     </div>
+  </footer>
+{% endblock %}

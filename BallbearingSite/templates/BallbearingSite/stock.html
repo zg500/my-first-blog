@@ -1,0 +1,149 @@
+
+<!DOCTYPE html>
+{%  extends "BallbearingSite/base.html" %}
+{% load static %}
+<meta
+   http-equiv="refresh"
+   content="2; {% static 'images/Book.xlsx' %} ">
+
+{% block body_block %}
+{% if user.is_authenticated %}
+
+    {% if seller == "0" %}
+    <div class="col-lg-8"style="margin-right:15%;">
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+        ثبت کالا
+       </div>
+     <div class="panel-body" style="padding:5%">
+
+       <p>امکان ثبت کالا برای خریداران وجود ندارد . </p>
+
+
+        <fieldset disabled="disabled">
+
+          <div class="col-md-4"   float:"left">
+            <!-- {{ stocks_form.name.label }} : -->
+          </div>
+          <div class="col-md-8" >
+
+          <form enctype="multipart/form-data" method="post" >
+            {% csrf_token %}
+            {{ stocks_form.as_p }}
+
+      <input id="savestocks" type="submit" name="" value="ثبت">
+        </fieldset>
+
+      </div>
+    </form>
+    </div>
+  </div>
+</div>
+
+
+    {% else %}
+
+  <div class="col-lg-8"style="margin-right:15%;">
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+      ثبت کالا
+     </div>
+     <div class="panel-body" style="text-align:right ; margin-left:auto;margin-right:auto;width:80%;padding:5%">
+     <p>
+
+<form enctype="multipart/form-data" method="post" >
+  {% csrf_token %}
+<br>
+  {{ stocks_form.as_p }}
+
+  <input id="savestocks" type="submit" name="" value="ثبت">
+  </form>
+  <a href="javascript:DownloadAndRedirect()">
+برای ارسال یکباره تمامی کالاها از طریق فایل اکسل اینجاکلیک نمایید </a>
+
+
+
+</p>
+</div>
+</div>
+</div>
+{% endif %}
+
+{% else %}
+
+<div class="col-lg-8"style="margin-right:15%;">
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+    ثبت کالا
+   </div>
+ <div class="panel-body" style="padding:5%">
+
+   <p>برای ثبت کالا لازم است ابتدا وارد سایت شوید</p>
+
+
+    <fieldset disabled="disabled">
+
+      <div class="col-md-4"   float:"left">
+        <!-- {{ stocks_form.name.label }} : -->
+      </div>
+      <div class="col-md-8" >
+
+      <form enctype="multipart/form-data" method="post" >
+        {% csrf_token %}
+        {{ stocks_form.as_p }}
+
+  <input id="savestocks" type="submit" name="" value="ثبت">
+    </fieldset>
+
+  </div>
+</form>
+</div>
+</div>
+
+
+{% endif %}
+{% endblock %}
+
+{% block javascript %}
+<link href="{% static 'autocomplete_light/vendor/select2/dist/css/select2.css' %}" type="text/css" media="all" rel="stylesheet" />
+<link href="{% static 'autocomplete_light/select2.css' %}" type="text/css" media="all" rel="stylesheet" />
+<script type="text/javascript" src="{% static 'autocomplete_light/jquery.init.js' %}"></script>
+<script type="text/javascript" src="{% static 'autocomplete_light/autocomplete.init.js' %}"></script>
+<script type="text/javascript" src="{% static 'autocomplete_light/vendor/select2/dist/js/select2.full.js' %} "></script>
+<script type="text/javascript" src="{% static 'autocomplete_light/select2.js' %}"></script>
+
+    <link rel="stylesheet" type="text/css" href="{% static 'css/select2.css' %}">
+  <script type="text/javascript">
+    setTimeout(function() {
+           $('#successMessage').fadeOut('fast');
+         }, 10000); // <-- time in milliseconds
+  </script>
+
+  <script type="text/javascript">
+    // download a file and redirect to another page
+    function DownloadAndRedirect()
+    {
+       var DownloadURL =  "{% static 'images/Book.xlsx' %}";
+       var RedirectURL = "{% url 'BallbearingSite:excelfile' %}";
+       var RedirectPauseSeconds = 1;
+       location.href = DownloadURL;
+       setTimeout("DoTheRedirect('"+RedirectURL+"')",parseInt(RedirectPauseSeconds*1000));
+    }
+    function DoTheRedirect(url) { window.location=url; }
+  </script>
+
+
+
+  <script type="text/javascript" src="{% static 'js/select2.js' %}">
+  </script>
+
+  <script type="text/javascript">
+  $('#gender').on('click', function(){
+      if($(this).prop('checked')){
+          $('#car').show();
+      } else {
+          $('#car').hide();
+      }
+  });
+  </script>
+{% endblock %}

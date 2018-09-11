@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+{%  extends "BallbearingSite/base.html" %}
+{% load static %}
+
+{% block body_block %}
+
+
+<form method="post">
+     {% csrf_token %}
+    <div class="panel panel-primary">
+     <div class="panel-body" style=" padding:3%; width:100%">
+
+         {% for st in myst %}
+           <a href="{{ st.get_absolute_url }}" >
+              <img src="{% get_media_prefix %}{{ st.pic }}" height="120" width="120" />
+           </a>
+ <div style="width: 80%; height: 50%; float:left;">
+   <h4 onclick="location.href='{{ st.get_absolute_url }}';" style="cursor: pointer;">{{ st.car }} - {{ st.partname }}</h4>
+
+   &nbsp;&nbsp;&nbsp;  {{ st.description }}
+   <br>
+   <p></p>
+     <p style=font-size:10px>
+       &nbsp;&nbsp;&nbsp; {{st.user.profile.city}}
+     </p>
+ </div>
+
+   <br>
+       <hr>
+       {% endfor %}
+</form>
+</div>
+</div>
+
+         {% if myst.has_other_pages %}
+           <ul class="pagination">
+             {% if myst.has_previous %}
+               <li><a href="?page={{ myst.previous_page_number }}">&laquo;</a></li>
+             {% else %}
+               <li class="disabled"><span>&laquo;</span></li>
+             {% endif %}
+             {% for i in myst.paginator.page_range %}
+               {% if myst.number == i %}
+                 <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
+               {% else %}
+                 <li><a href="?page={{ i }}">{{ i }}</a></li>
+               {% endif %}
+             {% endfor %}
+             {% if myst.has_next %}
+               <li><a href="?page={{ myst.next_page_number }}">&raquo;</a></li>
+             {% else %}
+               <li class="disabled"><span>&raquo;</span></li>
+             {% endif %}
+           </ul>
+         {% endif %}
+
+
+   <!-- {% block extrajs %}
+
+   <script src="{% static 'datatables/media/js/jquery.dataTables.js' %}"></script>
+   <script src="{% static 'datatables/extensions/Responsive/js/dataTables.responsive.js' %}"></script>
+   <script src="{% static 'datatables/extensions/TableTools/js/dataTables.tableTools.js' %}"></script>
+
+   {% endblock %} -->
+
+
+
+{% endblock %}

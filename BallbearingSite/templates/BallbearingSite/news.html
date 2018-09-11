@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+{%  extends "BallbearingSite/base.html" %}
+{% block body_block %}
+
+{% for post in posts %}
+
+  <div class="col-lg-8"style="margin-right:15%;">
+<div class="panel panel-primary">
+  <div class="panel-heading">
+  <a href="{{ post.get_absolute_url }}" style=" color:black">  {{ post.title }}</a>
+  </div>
+<div class="panel-body" style=" padding:3%;">
+  <p>
+  <!-- safe is for rendering html code in this content -->
+  {{ post.content | safe | truncatechars_html:200}}
+  </p>
+
+<!-- <div class="row" {% cycle 'style="background-color: #C8CFFF;"' 'style="background-color: white;"' %}>
+
+    </div> -->
+  <hr>
+    <!-- <small> {{post.updateDateTime}}</small> -->
+
+    <small> <a href="{{ post.get_absolute_url }}" style="float:left"> ادامه مطلب</a> </small>
+
+  </div>
+</div>
+</div>
+{% endfor %}
+{% endblock %}

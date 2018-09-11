@@ -1,0 +1,266 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# pouyasystem <golshan.zahra@gmail.com>, 2017.
+#: .\forms.py:48 .\forms.py:76
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-01-27 16:48+0330\n"
+"PO-Revision-Date: 2017-12-26 11:40+0430\n"
+"Last-Translator: pouyasystem <golshan.zahra@gmail.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Virtaal 0.7.1\n"
+
+#: .\forms.py:19
+msgid "username"
+msgstr "نام کاربری"
+
+#: .\forms.py:20
+msgid "firstname"
+msgstr "نام"
+
+#: .\forms.py:21
+msgid "lastname"
+msgstr " نام خانوادگی"
+
+#: .\forms.py:22 .\models.py:55
+msgid "address"
+msgstr "آدرس"
+
+#: .\forms.py:23 .\models.py:49
+msgid "companyname"
+msgstr "نام شرکت"
+
+#: .\forms.py:24 .\models.py:52
+msgid "tel"
+msgstr "تلفن ثابت"
+
+#: .\forms.py:25 .\models.py:83
+msgid "email"
+msgstr "پست الکترونیکی"
+
+#: .\forms.py:26 .\models.py:53
+msgid "state"
+msgstr "استان"
+
+#: .\forms.py:28 .\models.py:54
+msgid "city"
+msgstr "شهر"
+
+#: .\forms.py:45
+msgid "Enter your filled downloaded file"
+msgstr "فایل اکسل حاوی اطلاعات کالاهای خود را وارد نمایید"
+
+#: .\forms.py:63 .\models.py:18
+msgid "stockname"
+msgstr "نوع کالا"
+
+#: .\forms.py:88
+msgid "password"
+msgstr "رمز عبور"
+
+#: .\forms.py:89
+msgid "password_repeat"
+msgstr " تکرار گذرواژه"
+
+#: .\forms.py:123
+msgid "subject"
+msgstr "موضوع"
+
+#: .\forms.py:124
+msgid "message"
+msgstr "پیام"
+
+#: .\models.py:19
+msgid "number"
+msgstr "شماره"
+
+#: .\models.py:20
+msgid "uffix"
+msgstr "پسوند"
+
+#: .\models.py:22
+msgid "brand must be in Capital letter"
+msgstr "مارک کالا را با حروف بزرگ انگلیسی وارد نمایید"
+
+#: .\models.py:23
+msgid "brand"
+msgstr "مارک"
+
+#: .\models.py:23
+msgid "pasvand"
+msgstr "پسوند"
+
+#: .\models.py:24
+msgid "comment"
+msgstr "توصیفات"
+
+#: .\models.py:25
+msgid "price"
+msgstr "قیمت"
+
+#: .\models.py:26
+msgid "date"
+msgstr "تاریخ"
+
+#: .\models.py:28 .\models.py:33 .\views.py:271
+msgid "pending"
+msgstr "درحال بررسی"
+
+#: .\models.py:29
+msgid "reject"
+msgstr "رد"
+
+#: .\models.py:30 .\views.py:43 .\views.py:70 .\views.py:71 .\views.py:188
+#: .\views.py:208
+msgid "approved"
+msgstr "تایید"
+
+#: .\models.py:31 .\views.py:46 .\views.py:58
+msgid "expired"
+msgstr "منقضی"
+
+#: .\models.py:33
+msgid "confirmation"
+msgstr "تایید"
+
+#: .\models.py:34
+msgid "seller"
+msgstr "فروشنده"
+
+#: .\models.py:38
+msgid "Stock"
+msgstr "کالا"
+
+#: .\models.py:39
+msgid "Stocks"
+msgstr "کالاها"
+
+#: .\models.py:48
+msgid "Enter in Farsi letters"
+msgstr "با حروف فارسی وارد نمایید"
+
+#: .\models.py:50 .\models.py:81
+msgid "Phone number must be 11 digit."
+msgstr "تلفن میبایست 11 رقم داشته باشد"
+
+#: .\models.py:51 .\models.py:82
+msgid "cellphone"
+msgstr "تلفن همراه"
+
+#: .\models.py:60
+msgid "UserProfileInfo"
+msgstr "اطلاعات کاربر"
+
+#: .\models.py:61
+msgid "UserProfileInfos"
+msgstr "اطلاعات کاربران"
+
+#: .\models.py:65
+msgid "Owner"
+msgstr "ثبت کننده"
+
+#: .\models.py:66 .\models.py:79
+msgid "title"
+msgstr "عنوان"
+
+#: .\models.py:67 .\models.py:80
+msgid "content"
+msgstr "پیام"
+
+#: .\models.py:68
+msgid "create date"
+msgstr "تاریخ ساخت"
+
+#: .\models.py:69 .\models.py:84
+msgid "update date"
+msgstr "تاریخ بروزرسانی"
+
+#: .\models.py:71
+msgid "Post"
+msgstr "پست"
+
+#: .\models.py:72
+msgid "Posts"
+msgstr "پستها"
+
+#: .\models.py:86
+#, fuzzy
+#| msgid "message"
+msgid "Message"
+msgstr "پیام"
+
+#: .\models.py:87
+#, fuzzy
+#| msgid "message"
+msgid "Messages"
+msgstr "پیام"
+
+#: .\models.py:136
+msgid "expiredays"
+msgstr "زمان انقضا"
+
+#: .\models.py:138
+msgid "ExpireDay"
+msgstr "زمان انقضا"
+
+#: .\models.py:139
+msgid "ExpireDays"
+msgstr "زمان انقضا"
+
+#: .\templates\admin\BallbearingSite\expiredays\change_form.html:5
+msgid "History"
+msgstr "تاریخچه"
+
+#: .\templates\admin\BallbearingSite\expiredays\change_form.html:12
+msgid "View on site"
+msgstr "مشاهده سایت"
+
+#~ msgid "days"
+#~ msgstr "روز"
+
+#~ msgid "Saved Successfully"
+#~ msgstr "با موفقیت ثبت گردید"
+
+#: .\models.py:18
+msgid "carname"
+msgstr "نام خودرو"
+
+#: .\models.py:29
+msgid "car"
+msgstr "نوع خودرو"
+
+#: .\models.py:24
+msgid "cars"
+msgstr "انواع خودرو"
+
+#: .\models.py:30
+ msgid "partname"
+ msgstr "نام قطعه"
+
+#: .\models.py:32
+ msgid "pic"
+ msgstr "تصویر"
+
+#: .\models.py:31
+ msgid "description"
+ msgstr "توضیحات"
+
+  #: .\models.py:44
+   msgid "Part"
+   msgstr "قطعه"
+
+  #: .\models.py:45
+   msgid "Parts"
+   msgstr "قطعات"
+
+   #: .\models.py:125
+    msgid "SellerDesktop"
+    msgstr "اطلاعات میزکاربری کاربران"

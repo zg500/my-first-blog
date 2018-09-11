@@ -1,0 +1,125 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" >
+    <title>مرجع تبادل کالاهاس صنعتی</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap-rtl.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/jquery-ui.css' %}">
+
+    <meta name="description" content="توضیحات سایت.">
+    <!-- <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> -->
+    <!-- <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/dataTables.bootstrap.min.css' %}"> -->
+
+    <!-- <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css"/> -->
+    <!-- <link rel="stylesheet" type="text/css" href="{% static 'css/fontawesome.min.css' %}"> -->
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous"> -->
+  </head>
+
+<body style="background-color:#f3f3f6; ">
+<div style="background-color:#4f9ee3 ;">
+
+    <div class="container" >
+        <div class="row" style="text-align:left">
+              <img src="{% static 'images/bearing-image.png' %}"  width="40%">
+            <!-- <img src="static\images\img_05.jpg" height="194" width="370" > -->
+          </div>
+    </div>
+
+  <nav class="navbar navbar-default" style="margin:0">
+    <div class="container-fluid" >
+      <div class="navbar-header">
+          <button class="navbar-toggle" data-toggle="collapse" data-target="#navbar1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+         </button>
+        <a href="{% url 'BallbearingSite:index' %}"><span class="navbar-brand pull-right glyphicon glyphicon-home">  </span></a>
+      </div>
+    <div class="collapse navbar-collapse" id="navbar1" >
+      <ul class="nav navbar-nav" >
+        {% if request.user.is_superuser or request.user.is_staff %}
+        <li class="menue"><a href="/admin">مدیریت</a></li>
+        {% endif %}
+
+        <li class="menue"><a href=" {% url 'BallbearingSite:register' %}">عضویت </a></li>
+        <li  class="menue"><a href="{% url 'BallbearingSite:stock' %}">ثبت کالا</a></li>
+        <li class="menue"><a href=" {% url 'BallbearingSite:contact' %}">تماس با ما</a></li>
+        <li><a href=" {% url 'BallbearingSite:news' %}"> اخبار و گزارشها </a></li>
+
+
+
+             {% if request.user.is_authenticated %}
+             <li class="dropdown menue">
+                 <a href="#" class="dropdown-toggle" data-toggle="dropdown"> میزکارمن  <span class="caret"></span></a>
+                 <ul class="dropdown-menu" role="menu">
+                   <li ><a href="{% url 'BallbearingSite:mydesktop' %}"> کالاهای درخواست شده </a></li>
+
+                    <li class="divider"></li>
+                   <li><a href="{% url 'BallbearingSite:mystocks' %}"> کالاهای من</a></li>
+                   {% endif %}
+                 </ul>
+               </li>
+
+      </ul>
+
+
+        {% if user.is_authenticated %}
+         <div style="float:left;  margin-top:0.5cm;">
+          <a class="nav-link" href="{% url 'logout' %}"> خروج </a>{{user.username}}
+         </div>
+        {% else %}
+        <div class="" style="float:left">
+         <br>
+         <a href="{% url 'BallbearingSite:login' %}">ورود به سایت</a>
+       </div>
+        {% endif %}
+
+
+     </div>
+   </div><!-- container -->
+  </nav>
+</div>
+
+
+<div class="container">
+  <div id="successMessage" style=" width:100%">
+    <ul class="messages">
+      {% for message in messages %}
+      <li {% if message.tags %} class="{{ message.tags }}" {% endif %}>{{message}} </li>
+      {% endfor %}
+    </ul>
+  </div>
+
+    {% block body_block %}
+    {% endblock %}
+</div>
+</body>
+
+
+  {% block footer_block %}
+  {% endblock %}
+  <!-- # اول حتما باید جی کوئری منصل بشه لعد جاوااسکریپت -->
+  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> -->
+  <script type="text/javascript" src="{% static 'js/jquery-1.12.4.min.js' %}">
+  </script>
+  <script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}">
+  </script>
+  <script type="text/javascript" src="{% static 'js/sorttable.js' %}">
+  </script>
+  <script type="text/javascript" src="{% static 'js/jquery-ui.min.js' %}">
+  </script>
+
+  {% block javascript %}
+  {% endblock %}
+  <!-- <script type="text/javascript" src="{% static 'js/jquery.dataTables.min.js' %}">
+  </script>
+  <script type="text/javascript" src="{% static 'js/dataTables.bootstrap.min.js' %}">
+  </script>
+ -->
